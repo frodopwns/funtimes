@@ -8,6 +8,10 @@ blocks = []
 
 @app.route("/<ip>")
 def index(ip):
+    """
+    Handles /ip where ip is an address in the form
+    ddd.ddd.d.d (eg 123.123.1.1)
+    """
     ip = int("".join(ip.split(".")))
     _id = None
 
@@ -16,9 +20,12 @@ def index(ip):
         _id = blocks[_index][2]
         return jsonify(**locations[_id])
     else:
-        return "fail"
+        return "not found"
 
 def binary_search(seq, t):
+    """
+    Binary search search for blocks list
+    """
     min = 0
     max = len(seq) - 1
     while True:
@@ -37,7 +44,9 @@ def binary_search(seq, t):
             return m
 
 def parse_data():
-
+    """
+    Open the csvs and read them into memory
+    """
     filehandler = codecs.open("GeoLiteCity-Blocks.csv", 'rU')
     f = csv.reader(filehandler)
     for i, row in enumerate(f):

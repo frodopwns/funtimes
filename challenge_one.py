@@ -6,6 +6,13 @@ class RaceAverage(object):
         pass
 
     def avgMinutes(self, strings):
+        """
+        Receives a list of strings like ["12:00 PM, DAY 1", "12:01 PM, DAY 1"]
+        and calculates an average time in minutes from when the race started
+        at 8am on Day 1.
+
+        """
+        # start of race
         start = datetime.strptime('08:00 AM', '%H:%M %p')
 
         total = 0
@@ -13,14 +20,17 @@ class RaceAverage(object):
         for s in strings:
             time_string, day = s.split(", ")
             day = int(day[4:]) - 1
+            # if these racers finished the day of the race
             if day == 0:
                 diff = datetime.strptime(time_string, '%H:%M %p') - start
                 diff += timedelta(days=day)
                 minutes = divmod(diff.total_seconds(), 60)[0]
             else:
+                # time from the rest of the first day
                 minutes = 960
+                # loop through the additional days
                 for i in range(day):
-
+                    # check if last day
                     if i+1 == len(range(day)):
                         if time_string[-2:] == "AM":
                             if time_string[:2] == "12":
@@ -29,8 +39,10 @@ class RaceAverage(object):
                                 delta = int(time_string[:2]) * 60
                         else:
                             delta = (12 * 60) + (int(time_string[:2]) * 60)
+                        # add the minutes from the last day
                         minutes += delta + int(time_string[3:5])
                     else:
+                        # add 24 hours worth of minutes for each full day
                         minutes += 1440
 
             total += int(round(minutes))
