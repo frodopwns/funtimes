@@ -7,7 +7,7 @@ locations = {}
 blocks = []
 
 @app.route("/<ip>")
-def hello(ip):
+def index(ip):
     ip = int("".join(ip.split(".")))
     _id = None
 
