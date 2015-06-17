@@ -6,7 +6,17 @@
 
 #Challenge 2 - MaxMind GeoLite API
 
+Download the csv source data from [here](http://geolite.maxmind.com/download/geoip/database/GeoLiteCity_CSV/GeoLiteCity-latest.zip)
 When starting challenge_two.py the code will load the csv's into memory before starting the web server.  This should take under 5 seconds.
+
+Extract the files into the project directory.
+
+    .
+    ├── challenge_one.py
+    ├── challenge_two.py
+    ├── GeoLiteCity-Blocks.csv
+    ├── GeoLiteCity-Location.csv
+    └── README.md
 
     sudo pip install flask
     python challenge_two.py

@@ -48,7 +48,7 @@ if __name__ == '__main__':
     answers = [241, 960, 27239]
     race = RaceAverage()
     for i, test in enumerate(test_data):
-        print "runnign test with data: [%s]" % ", ".join(["'%s'" % x for x in test])
+        print "running test with data: [%s]" % ", ".join(["'%s'" % x for x in test])
         v = race.avgMinutes(test)
         assert(v == answers[i])
         print "average: %d" % v
