@@ -6,6 +6,8 @@
 
 #Challenge 2 - MaxMind GeoLite API
 
+When starting challenge_two.py the code will load the csv's into memory before starting the web server.  This should take under 5 seconds.
+
     sudo pip install flask
     python challenge_two.py
 
