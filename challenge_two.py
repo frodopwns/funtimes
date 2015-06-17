@@ -1,4 +1,5 @@
-import csv, codecs
+import csv
+import codecs
 from flask import Flask, jsonify
 
 app = Flask(__name__)
