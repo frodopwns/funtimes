@@ -37,5 +37,4 @@ From another terminal:
     }
 
 ---
-
-
+---
