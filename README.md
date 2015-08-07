@@ -37,4 +37,3 @@ From another terminal:
     }
 
 ---
-test
